@@ -106,23 +106,23 @@ Briefly describe the purpose of the proposal and the software project(s) it invo
 
 *3,000 characters maximum*
 
-scikit-image is the foundational image-processing library of the scientific Python ecosystem. Since 2009 it has provided a curated, well-documented, permissively licensed collection of algorithms—filtering, segmentation, feature detection, morphology, measurement, and registration—that life scientists rely on to turn microscopy, medical, and other imaging data into quantitative results. The 2014 PeerJ paper has been cited more than 8,000 times, the library is downloaded roughly 28 million times per month (about 6.6 million in the last week alone), and it sits beneath much of the modern bioimaging stack, including cellpose and countless lab-specific analysis pipelines.
+scikit-image is a foundational open-source image-processing library in the scientific Python ecosystem. Since 2009 it has provided a curated, well-documented and tested collection of algorithms: for filtering, segmentation, feature detection, morphology, measurement, and registration. Life scientists rely on scikit-image to analyze microscopy, neuroimaging, and cell data into quantitative research results. The library is downloaded roughly 30M times per month, and its 2014 paper has been cited more than 8000 times. Is is a fundamental building block for modern bioimaging stacks, and is used in a great variety of lab analysis pipelines.
 
-For several years the core team has concentrated on a major internal effort: the scikit-image 2.0 API. This work modernizes our interface, brings every function in line with current best practices, and implements consistent design protocols across the library. It is healthy, necessary work—but it has kept us focused on refactoring and software-engineering mechanics rather than on new capabilities for our users. With this grant, we will turn our attention back to the scientists who depend on us, and to the life-science imaging community in particular.
+For the last few years, the core team has been working on a major internal refactor: the scikit-image 2.0 API. This work modernizes our interface, brings functions in line with current best practices, and establishes consistent design protocols across the library. This was necessary and important work, but it has also kept us focused on refactoring and software-engineering mechanics, rather than on bringing new capabilities to the community. With this grant, we aim to turn our attention back to the scientists who depend on us, and to the life-science imaging community in particular.
 
 We propose five lines of work:
 
-1. **Community engagement and enabling pathways.** We will systematically learn the needs of the bioimaging community and build the routines those projects can stand on—working with the NiPy and DiPy teams, the napari developers, packages such as DeepLabCut, the Van Valen lab (Caltech), and the Advanced Bioimaging Center at Berkeley. We will implement these capabilities in scikit-image, in collaboration with those teams, rather than writing code directly into their libraries.
+1. **Community engagement and enabling pathways.** We will systematically learn the current needs of the bioimaging community and, in response, build new routines for scikit-image to address those. Initially, we will rely on our established connections with  the Advanced Bioimaging Lab at Berkeley and the Van Valen lab at Caltech, but will expand to include input from other groups as the grant progresses. On the software side, we will closely collaborate with the NiPy, DiPy, and napari developers, later expanding to domain-specific projects such as DeepLabCut.
 
-2. **Hardware acceleration.** We will make scikit-image competitive on modern hardware by enabling GPU workflows. The Array API standard helps, but is insufficient for a predominantly Cython-based library; we will coordinate with the Cython team and explore complementary technical pathways.
+2. **Hardware acceleration.** We will make scikit-image competitive on modern hardware by enabling GPU workflows. The Array API standard helps, is insufficient by itself for a predominantly Cython-based library; we will coordinate with the Cython team and Pythran author to explore complementary technical pathways.
 
-3. **AI-accessible documentation.** We will port our documentation to MyST Markdown, whose machine-readable JSON output lets agents and AI tools discover and use scikit-image far more reliably. We will build and test end-to-end bioimaging workflows, improving the library and its docs wherever those workflows break down.
+3. **AI-accessible documentation.** We will port our documentation to MyST Markdown, whose machine-readable JSON output lets agents and AI tools better discover and use scikit-image. We will build and test end-to-end bioimaging workflows, improving the library and its docs wherever those workflows are incomplete or of insufficient quality.
 
-4. **Image registration.** As a concrete technical deliverable, we will substantially expand our image-registration support—today only a basic API—into a robust, general offering valuable across neuroimaging, microscopy, and many other life-science domains.
+4. **Image registration.** As a concrete technical deliverable, we will substantially expand our image-registration support. We have an existing, basic API, but we want to see it become a robust, general offering practically usable across neuroimaging, microscopy, cell tracking, and other fields.
 
-5. **Structured, AI-assisted maintenance.** We will integrate AI into our maintenance workflows deliberately—handling dependency updates, deprecations, CI failures, and security fixes—to reduce our backlog and free developer time for algorithmic work.
+5. **Structured, AI-assisted maintenance.** We will, carefully, explore and integrate AI into our maintenance workflows, particularly lifting the burden on routine maintenance tasks (dependency updates, deprecations, CI failures, security fixes, etc.) that occupy a lot of the team's time. This should help us reduce our backlog and free developer time for algorithmic work, which still requires deep expertise and focus.
 
-Together, these aims align with scikit-image's own roadmap and carry the backing of the core maintainer team.
+These five aims align with scikit-image's own roadmap and carry the backing of the core maintainer team.
 
 ---
 
@@ -135,13 +135,13 @@ If the proposal is successfully funded, what does success look like? We're seeki
 
 *1,500 characters maximum*
 
-Success means scikit-image becomes a first-class tool for AI-native, large-scale bioimaging—not only a manual, single-machine library.
+Success means that scikit-image remains a relevant, highly-used library for large-scale bioimaging, providing cutting edge algorithmic access across thousands of projects.
 
-For the scientific community, this unlocks GPU-accelerated processing of the large image volumes now routine in microscopy and medical imaging; reliable use of scikit-image inside agentic and AI-assisted workflows, through machine-readable documentation and tested end-to-end pipelines; and a substantially expanded image-registration capability that many life-science fields currently assemble by hand or borrow from heavier, domain-specific tools.
+For the scientific community, we unlock GPU-accelerated processing of the large image volumes now routine in microscopy and medical imaging; reliable use of scikit-image inside agentic and AI-assisted workflows, through machine-readable documentation and tested end-to-end pipelines; and a substantially expanded image-registration capability that many projects currently assemble by hand or borrow from heavier, domain-specific tools.
 
-Upstream, our GPU work will exercise and improve the Array API standard and Cython for the whole ecosystem. Downstream, the tools that use scikit-image—from cellpose to custom lab pipelines—gain faster execution and clearer interfaces; and partner projects such as NiPy, DiPy, DeepLabCut, and napari gain new registration and bioimaging routines they can build on, developed in collaboration rather than committed into their codebases.
+Upstream, our GPU work will exercise and improve dispatching and Array API standards, potentially improving compilers like Cython and Pythran for the whole ecosystem. Downstream, projects that use scikit-image gain faster execution and cleaner interfaces, while partner projects such as NiPy and DiPy gain new registration and bioimaging building blocks, developed by an experienced, trusted team.
 
-On AI enablement specifically: machine-readable docs let coding agents call our functions correctly; tested reference workflows give AI systems reliable building blocks; and GPU support brings scikit-image into the data-intensive training and inference loops that modern bioimaging increasingly depends on.
+In an era where AI is becoming ever more relevant: machine-readable docs let coding agents call our functions correctly; tested reference workflows give AI systems reliable building blocks; and GPU support makes scikit-image effective in data-intensive workflows and the training/inference loops that modern bioimaging increasingly depends on.
 
 ---
 
@@ -151,11 +151,11 @@ We are looking for proposals from software projects with demonstrated traction a
 
 *1,500 characters maximum*
 
-Bioimage analysts work across a spectrum of tools. ImageJ/Fiji and CellProfiler dominate GUI-driven analysis; ITK is the standard for medical registration and segmentation; OpenCV serves computer vision; and commercial packages (Imaris, MATLAB, Arivis) remain common in microscopy. napari has become the leading Python-based viewer. Among these, scikit-image is the general-purpose, Pythonic image-processing foundation: BSD-licensed, thoroughly documented, and designed to interoperate with NumPy, SciPy, and the wider scientific Python stack.
+Bioimage analysts use a wide spectrum of tools. ImageJ/Fiji and CellProfiler are common for GUI-driven analysis; ITK is the standard for medical registration and segmentation; OpenCV serves robotics and computer vision; and commercial packages (Imaris, MATLAB, Arivis) remain common in microscopy. napari has become the leading Python-based viewer. Next to these, scikit-image is the reference Pythonic image-processing implementation: it has a clean API, wide algorithmic support, is thoroughly tested and documented, and is designed to interoperate seamlessly with NumPy, SciPy, and the wider scientific Python ecosystem.
 
-Its adoption is exceptional: more than 8,000 citations of the 2014 PeerJ paper, roughly 28 million downloads per month, and a core dependency role beneath cellpose and a large fraction of custom bioimaging pipelines. It is already the de-facto image-processing layer that deep-learning workflows reach for when preparing, augmenting, and measuring image data—its metrics such as structural similarity (SSIM) are standard loss and evaluation functions for training and benchmarking image models, including microscopy denoising and super-resolution.
+It is downloaded ~30M times per month, has more than 8000 citations of its 2014 paper, and is a core dependency of most Python bioimaging pipelines. Its components are widely used in scaffolding deep-learning workflows: for preparing, augmenting, and measuring results. And metrics such as structural similarity (SSIM) are widely used in training, for purposes such as microscopy denoising and super-resolution enhancement.
 
-Relative to its peers, scikit-image is more mature and more broadly adopted than most open alternatives, fully open unlike the commercial tools, and uniquely positioned as the composable, scriptable layer that AI-driven pipelines require. Its current gaps—GPU performance and AI-discoverable interfaces—are addressed by this proposal.
+scikit-image is mature and broadly adopted. Its liberal license, along with transparent development and governance, make it a safe long-term infrastructure choice. Its open, well-documented API positions it uniquely  to be a composable, scriptable layer acessible to AI-driven pipelines. This proposal addresses current gaps: GPU performance, even better AI-discoverability, and an expanded algorithmic offering for bioimaging.
 
 ---
 
@@ -227,9 +227,4 @@ For full instructions about the track for this call, visit the provided link.
 
 ## Statement of PI Involvement
 
-I am the founder of scikit-image and a member of its core maintainer team. I
-confirm that the work proposed here is aligned with the scikit-image roadmap and
-has the support of the core maintainer community. As co-founder of Scientific
-Python and a core contributor across NumPy, SciPy, NetworkX, and (previously)
-DiPy, I will coordinate the proposed work and the collaborations with partner
-groups in the bioimaging community.
+I am the founder of scikit-image and a member of its core maintainer team. I confirm that the work proposed here is aligned with the scikit-image roadmap and has the support of the core maintainer community. As co-founder of Scientific Python and a core contributor across NumPy, SciPy, NetworkX, and (previously) DiPy, I commit to coordinating the proposed work and the collaborations with partner groups in the bioimaging community.
