@@ -107,7 +107,7 @@ May want to say something about how projects currently handle, e.g., registratio
 
 **Success indicators:**
 
-- Front page, along with user and reference documentation, is migrated to mystmd.
+- Landing page, along with user and reference documentation, is migrated to mystmd.
 - Prototype workflows can be auto-generated, correctly, start-to-end.
 
 ---
