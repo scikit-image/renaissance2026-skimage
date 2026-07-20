@@ -1,30 +1,48 @@
-## Short Summary
-
-*Edit as needed from LOI. Briefly describe the purpose of the proposal and the software project(s) it involves. Please note that details related to the work plan can be moved to and expanded upon in the Work Plan and Goals, Outcomes, Milestones and Deliverables section.*
-
-*3,000 characters maximum*
-
-scikit-image is a foundational open-source image-processing library in the scientific Python ecosystem. Since 2009 it has provided a curated, well-documented, and tested collection of algorithms for filtering, segmentation, morphology, measurement, and more. Life scientists rely on it to turn microscopy, neuroimaging, and cell data into quantitative results. It is downloaded ~30M times monthly, has over 8000 citations, and underpins many bioimaging pipelines.
-
-With instruments of increasing sophistication, such as light-sheet fluorescence microscopes, and the production of high-volume data products enabled by AI and foundation models, life-science imaging is outgrowing its open-source foundation. Datasets now routinely grow to terabytes and analysis increasingly relies on a combination of deep learning and classic algorithms, deployed via agentic pipelines. Yet, the implementations of those classical image-processing routines, including the ones in scikit-image, were built in a time when they were typically deployed, by hand, on a single machine: CPU-bound, albeit with several cores. Scientists who depend on our vetted, thoroughly tested algorithms cannot currently easily scale to modern data and hardware, and agentic pipeline generation can be less efficient than it needs to be. The researchers must then turn to niche tools outside of the ecosystem to access capabilities such as registration. Our goal is for our users to keep using trusted, community-built software as their work scales and moves to modern hardware. For scikit-image, the timing for this change is ideal, with version 2.0, a major API overhaul, slated for completion in fall 2026.
-
-We propose a coordinated 24-month project, organized around five mutually reinforcing goals. Four of these are concrete technical objectives: (1) hardware acceleration, enabling GPU workflows so that large image volumes can be processed at far higher rates; (2) AI-accessible documentation, porting our docs to mystmd, whose machine-readable output lets coding agents efficiently discover and correctly compose our functions; (3) image registration, hardening existing experimental APIs into a single, robust module usable across bioimaging disciplines; and (4) procedures for AI-assisted maintenance, discovering and openly sharing reusable patterns for safely applying AI to routine upkeep, freeing developer time for algorithmic work. The fifth goal, community engagement, supports and may help refine the above goals: via annual community and developer summits we validate and refine our technical priorities through feedback from bioimaging researchers and neighboring projects (NiPy, DiPy, napari, DeepLabCut), ensuring the work addresses real research needs.
-
-# Work Plan
-
-Open Source for the Life Sciences (OS4LS)
+# Open Source for the Life Sciences (OS4LS) submission
 
 **Proposal Title:** Accelerating scikit-image for modern bioimaging workflows
 
 **Applicant Name:** Stéfan van der Walt
 
----
+## Short Summary
+
+*Edit as needed from LOI. Briefly describe the purpose of the proposal and the software project(s) it involves. Please note that details related to the work plan can be moved to and expanded upon in the Work Plan and Goals, Outcomes, Milestones and Deliverables section. (maximum 3,000 characters)*
+
+scikit-image is a foundational open-source image-processing library in the scientific Python ecosystem. Since 2009 it has provided a curated, well-documented, and tested collection of algorithms for filtering, segmentation, morphology, measurement, and more. Life scientists rely on it to turn microscopy, neuroimaging, and cell data into quantitative results. It is downloaded ~30M times monthly, has over 8000 citations, and underpins many bioimaging pipelines.
+
+With instruments of increasing sophistication, such as light-sheet fluorescence microscopes, and the production of high-volume data products enabled by AI and foundation models, life-science imaging is outgrowing its open-source foundation. Datasets now routinely grow to terabytes and analysis increasingly relies on a combination of deep learning and classic algorithms, deployed via agentic pipelines. Yet, the implementations of those classical image-processing routines, including the ones in scikit-image, were built in a time when they were typically deployed, by hand, on a single machine: CPU-bound, albeit with several cores. Scientists who depend on our vetted, thoroughly tested algorithms cannot currently easily scale to modern data and hardware, and agentic pipeline generation can be less efficient than it needs to be. The researchers must then turn to niche tools outside of the ecosystem to access capabilities such as registration. Our goal is for our users to keep using trusted, community-built software as their work scales and moves to modern hardware. For scikit-image, the timing for this change is ideal, with version 2.0, a major API overhaul, slated for completion in fall 2026.
+
+We propose a coordinated 24-month project, organized around five mutually reinforcing goals. Four of these are concrete technical objectives: (1) hardware acceleration, enabling GPU workflows so that large image volumes can be processed at far higher rates; (2) AI-accessible documentation, porting our docs to mystmd, whose machine-readable output lets coding agents efficiently discover and correctly compose our functions; (3) image registration, evolving existing experimental APIs into a single, robust module usable across bioimaging disciplines; and (4) procedures for AI-assisted maintenance, discovering and openly sharing reusable patterns for safely applying AI to routine upkeep, freeing developer time for algorithmic work. The fifth goal, community engagement, supports and may help refine the above goals: via annual community and developer summits we validate and refine our technical priorities through feedback from bioimaging researchers and neighboring projects (NiPy, DiPy, napari, DeepLabCut), ensuring the work addresses real research needs.
+
+## Expected Value
+
+*Edit as needed from LOI. If the proposal is successfully funded, what does success look like? We're seeking to understand: what type of capabilities the proposal is unlocking for the scientific community; how upstream and downstream software will be improved by the proposal; how the proposed work supports or implements novel functionality for AI enablement and large-scale data analysis. (maximum 1,500 characters)*
+
+Success means that scikit-image remains a relevant, widely used library for large-scale bioimaging, providing access to cutting-edge algorithms across thousands of projects.
+
+For the scientific community, we unlock GPU-accelerated processing of the large image volumes now routine in microscopy and medical imaging, and a substantially expanded image-registration capability that many projects today assemble by hand or piece together from specialized packages.
+
+Upstream, our GPU work will exercise the Array API standard and build prototype parallel CPU/GPU implementations, resulting in patterns translatable across the ecosystem. Downstream, projects that use scikit-image gain faster execution and cleaner interfaces, while partner projects such as NiPy and DiPy gain new, GPU-accelerated bioimaging building blocks, developed by an experienced, trusted team.
+
+AI access and large-scale data processing are improved: machine-readable docs let coding agents call our functions efficiently and correctly, and GPU support makes scikit-image viable for use in data-intensive training and inference.
+
+For the wider open-source ecosystem, the maintenance patterns we develop and publish show projects how to hand routine upkeep to AI without letting code complexity grow. This redirects scarce maintainer time toward algorithmic work, which benefits researchers most.
+
+## Landscape Analysis
+
+*Edit as needed from LOI. Briefly describe other software tools that the audience for this proposal primarily uses (including proprietary alternatives, if they exist), and how the software project(s) in your proposal compare in terms of user base, adoption, functionality, and maturity relative to their target audience. You can add indicators of adoption and usage as needed. Please indicate if the software is used in AI applications and workflows. (maximum 1,500 characters)*
+
+Bioimage analysts use a wide spectrum of tools. ImageJ/Fiji and CellProfiler are common for GUI-driven analysis; ITK is the standard for medical registration and segmentation; OpenCV serves robotics and computer vision; and commercial packages (Imaris, MATLAB, Arivis) remain common in microscopy. napari has become the leading Python-based viewer. Next to these, scikit-image is the reference Pythonic image-processing implementation: it has a clean API, wide algorithmic support, is thoroughly tested and documented, and is designed to interoperate seamlessly with NumPy, SciPy, and the wider scientific Python ecosystem.
+
+It is downloaded ~30M times per month, has more than 8000 citations of its 2014 paper, and is a core dependency of most Python bioimaging pipelines. Its components scaffold deep-learning workflows: preparing, augmenting, and measuring data. Its metrics, such as structural similarity (SSIM), are standard in training for tasks like microscopy denoising and super-resolution.
+
+scikit-image is mature and broadly adopted. Its liberal license, along with transparent development and governance, makes it a safe long-term infrastructure choice. Its open, well-documented API positions it well as a composable, scriptable layer for AI-driven pipelines. With this proposal, we extend that foundation to modern hardware, a broader set of algorithms, and machine-readable interfaces for AI.
 
 ## Work Plan (max 750 words)
 
 scikit-image provides a curated set of carefully tested & documented, community-owned image processing algorithms widely deployed in life sciences research. This proposal supports a 24-month effort to evolve the trusted foundation scikit-image provides to meet modern demands: processing large datasets, utilizing GPU hardware, and implementing pipelines with the assistance of AI. This work fits the project roadmap ([SKIP 4](https://scikit-image.org/docs/dev/skips/4-transition-to-v2.html)), which aims to complete the library's major 2.0 API overhaul by fall 2026. The new API, apart from being more uniform and addressing concerns around early design decisions, generalizes the library for use across more imaging modalities, and opens the door to new feature development.
 
-We structure our work around five goals that augment one another. Four are concrete technical objectives, identified as priorities for the bioimaging community---hardware acceleration, AI-accessible documentation, image registration, and AI-assisted maintenance (Goals 1--4, detailed below). The fifth is community engagement, which allows for early feedback, and ensures that the technical work is grounded in real research needs.
+We structure our work around five goals that augment one another. Four are concrete technical objectives, identified as priorities for the bioimaging community: hardware acceleration, AI-accessible documentation, image registration, and AI-assisted maintenance (Goals 1--4, detailed below). The fifth is community engagement, which allows for early feedback, and ensures that the technical work is grounded in real research needs.
 
 **Goal 1. Hardware acceleration:** We will make scikit-image competitive on modern hardware by enabling GPU processing. In discussion with the Array API team and Cython authors, we have formulated a strategy for optimizing scikit-image across hardware platforms, and across both vectorized and non-vectorized classes of algorithms. This will make it possible to process larger images at a much higher rate.
 
