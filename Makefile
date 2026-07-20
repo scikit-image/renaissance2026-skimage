@@ -2,12 +2,16 @@ SRC      := WORKPLAN.md
 FILTER   := strip-prompts.lua
 TEMPLATE := OS4LS Work Plan template.docx
 OUT      := OS4LS-WorkPlan-vanderWalt.docx
+BIO      := OPTIONAL_UPLOAD.md
+BIO_OUT  := OPTIONAL_UPLOAD.pdf
 
-.PHONY: all docx clean
+.PHONY: all docx optional clean
 
-all: docx
+all: docx optional
 
 docx: $(OUT)
+
+optional: $(BIO_OUT)
 
 # We produce text for the work plan here, but to preserve styling of
 # the template it still has to be cut and paste. If we had a bit more
@@ -21,5 +25,13 @@ $(OUT): $(SRC) $(FILTER)
 	  -o "$(OUT)"
 	@echo "Wrote $(OUT)"
 
+# Optional supporting document (bio) -> PDF. Sans-serif font and page
+# geometry come from the YAML header in $(BIO); needs a LaTeX engine
+# (pandoc's default, pdflatex).
+$(BIO_OUT): $(BIO)
+	pandoc "$(BIO)" \
+	  -o "$(BIO_OUT)"
+	@echo "Wrote $(BIO_OUT)"
+
 clean:
-	rm -f "$(OUT)"
+	rm -f "$(OUT)" "$(BIO_OUT)"
