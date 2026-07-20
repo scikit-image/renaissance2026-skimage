@@ -1,3 +1,15 @@
+## Short Summary
+
+*Edit as needed from LOI. Briefly describe the purpose of the proposal and the software project(s) it involves. Please note that details related to the work plan can be moved to and expanded upon in the Work Plan and Goals, Outcomes, Milestones and Deliverables section.*
+
+*3,000 characters maximum*
+
+scikit-image is a foundational open-source image-processing library in the scientific Python ecosystem. Since 2009 it has provided a curated, well-documented, and tested collection of algorithms for filtering, segmentation, morphology, measurement, and more. Life scientists rely on it to turn microscopy, neuroimaging, and cell data into quantitative results. It is downloaded ~30M times monthly, has over 8000 citations, and underpins many bioimaging pipelines.
+
+With instruments of increasing sophistication, such as light-sheet fluorescence microscopes, and the production of high-volume data products enabled by AI and foundation models, life-science imaging is outgrowing its open-source foundation. Datasets now routinely grow to terabytes and analysis increasingly relies on a combination of deep learning and classic algorithms, deployed via agentic pipelines. Yet, the implementations of those classical image-processing routines, including the ones in scikit-image, were built in a time when they were typically deployed, by hand, on a single machine: CPU-bound, albeit with several cores. Scientists who depend on our vetted, thoroughly tested algorithms cannot currently easily scale to modern data and hardware, and agentic pipeline generation can be less efficient than it needs to be. The researchers must then turn to niche tools outside of the ecosystem to access capabilities such as registration. Our goal is for our users to keep using trusted, community-built software as their work scales and moves to modern hardware. For scikit-image, the timing for this change is ideal, with version 2.0, a major API overhaul, slated for completion in fall 2026.
+
+We propose a coordinated 24-month project, organized around five mutually reinforcing goals. Four of these are concrete technical objectives: (1) hardware acceleration, enabling GPU workflows so that large image volumes can be processed at far higher rates; (2) AI-accessible documentation, porting our docs to mystmd, whose machine-readable output lets coding agents efficiently discover and correctly compose our functions; (3) image registration, hardening existing experimental APIs into a single, robust module usable across bioimaging disciplines; and (4) procedures for AI-assisted maintenance, discovering and openly sharing reusable patterns for safely applying AI to routine upkeep, freeing developer time for algorithmic work. The fifth goal, community engagement, supports and may help refine the above goals: via annual community and developer summits we validate and refine our technical priorities through feedback from bioimaging researchers and neighboring projects (NiPy, DiPy, napari, DeepLabCut), ensuring the work addresses real research needs.
+
 # Work Plan
 
 Open Source for the Life Sciences (OS4LS)
