@@ -40,7 +40,7 @@ scikit-image is mature and broadly adopted. Its liberal license, along with tran
 
 ## Work Plan (max 750 words)
 
-scikit-image provides a curated set of carefully tested & documented, community-owned image processing algorithms widely deployed in life sciences research. This proposal supports a 24-month effort to evolve the trusted foundation scikit-image provides to meet modern demands: processing large datasets, utilizing GPU hardware, and implementing pipelines with the assistance of AI. This work fits the project roadmap ([SKIP 4](https://scikit-image.org/docs/dev/skips/4-transition-to-v2.html)), which aims to complete the library's major 2.0 API overhaul by fall 2026. The new API, apart from being more uniform and addressing concerns around early design decisions, generalizes the library for use across more imaging modalities, and opens the door to new feature development.
+scikit-image provides a curated set of carefully tested & documented, community-owned image processing algorithms widely deployed in life sciences research. This proposal supports a 24-month effort to evolve the trusted foundation scikit-image provides to meet modern demands: processing large datasets, utilizing GPU hardware, and implementing pipelines with the assistance of AI. This work fits the project roadmap, which aims to complete the library's major 2.0 API overhaul ([SKIP 4](https://scikit-image.org/docs/dev/skips/4-transition-to-v2.html)) by fall 2026. The new API, apart from being more uniform and addressing concerns around early design decisions, generalizes the library for use across more imaging modalities, and opens the door to new feature development.
 
 We structure our work around five goals that augment one another. Four are concrete technical objectives, identified as priorities for the bioimaging community: hardware acceleration, AI-accessible documentation, image registration, and AI-assisted maintenance (Goals 1--4, detailed below). The fifth is community engagement, which allows for early feedback, and ensures that the technical work is grounded in real research needs.
 
@@ -56,7 +56,7 @@ We structure our work around five goals that augment one another. Four are concr
 
 scikit-image is permissively licensed under the Modified BSD license. All work funded by this grant is available to researchers across the globe free of charge and free of restriction.
 
-Beyond funded activities, the Berkeley Institute for Data Science will provide in-kind support for summits in the form of meeting space in their AI Futures Lab.
+Beyond funded activities, the Berkeley Institute for Data Science will provide in-kind support for summits in the form of meeting space in their AI Futures Lab. The Advanced Bioimaging Center will provide project feedback, share example data, and help prioritize accelerated bioimaging pipeline needs.
 
 ---
 
