@@ -1,4 +1,9 @@
 #!/usr/bin/env python3
+#
+# On the final preview page, view source, click on HTML, save inner HTML as inner.html.
+# Run this script.
+#
+
 import html
 import sys
 from pathlib import Path
