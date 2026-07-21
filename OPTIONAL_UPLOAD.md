@@ -7,7 +7,7 @@ header-includes:
 
 # Stéfan van der Walt — Biographical Sketch
 
-Stéfan van der Walt is a Senior Research Data Scientist at the Berkeley Institute for Data Science (BIDS), University of California, Berkeley. He is the founder and project leader of scikit-image. He is a co-author of *Elegant SciPy* (O'Reilly, 2016). He has been developing open source scientific libraries for over twenty years, and is a core contributor to NumPy and SciPy and a member of their steering councils, a NetworkX core developer, and a co-founder of the Scientific Python project, which coordinates the ecosystem and supports its maintainers.
+Stéfan van der Walt is a Senior Research Data Scientist at the Berkeley Institute for Data Science (BIDS), University of California, Berkeley. He is the founder and project leader of scikit-image and co-author of *Elegant SciPy* (O'Reilly, 2016). He has been developing open source scientific libraries for over twenty years, and is a core contributor to NumPy and SciPy and a member of their steering councils, a NetworkX core developer, and a co-founder of the Scientific Python project, which coordinates the ecosystem and supports its maintainers.
 
 He has a background in image processing and biomedical imaging: a PhD in super-resolution imaging (with published work on image registration) and a neuroscience postdoc at Berkeley's Helen Wills Neuroscience Institute, during which he was a core developer of DiPy, a prominent library for diffusion-MRI analysis. His applied imaging publications span diffusion MRI, biomedical imaging software, and computer vision for the natural sciences.
 
